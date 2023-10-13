@@ -1,13 +1,21 @@
 from django.db import models
 
+
+class Marque(models.Model):
+    libelle = models.CharField(max_length=100, unique=True)
+    description = models.TextField()
+    
+    
 class Vehicule(models.Model):
     marque = models.CharField(max_length=100)
     modele = models.CharField(max_length=100)
     annee_fabrication = models.IntegerField()
     vin = models.CharField(max_length=17, unique=True)
     type_carburant = models.CharField(max_length=50)
+    
     numero_plaque = models.CharField(max_length=15, unique=True)
     statut = models.CharField(max_length=20)
+
 
 class Conducteur(models.Model):
     nom = models.CharField(max_length=100)
